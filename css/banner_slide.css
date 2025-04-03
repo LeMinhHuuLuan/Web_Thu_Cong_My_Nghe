@@ -1,0 +1,67 @@
+/* Banner slide content */
+.carousel-container {
+  width: 100%;
+  margin: 20px auto;
+  margin-top: 80px; /* Điều chỉnh khoảng cách phía trên carousel */
+}
+
+.carousel-inner .carousel-item {
+  height: 600px; /* Điều chỉnh chiều cao của carousel */
+}
+
+.carousel-inner .carousel-item img {
+  height: 100%;
+  object-fit: cover; /* Đảm bảo hình ảnh phù hợp với chiều cao mới */
+}
+
+.carousel-caption{
+  display: inline-block;
+  text-align: center;
+}
+
+.carousel-caption h4{
+  font-size: 32px;
+}
+
+/* Home new arrival */
+.home-new-arrivals h2{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 450;
+}
+
+/*Middle content */
+.middle-content-1 .content-container{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.middle-content-1 .content-container .custom-content-1{
+  box-sizing: border-box;
+  padding: 15px;
+  margin-right: 20px ;
+}
+
+.middle-content-1 .content-container .custom-content-2{
+  box-sizing: border-box;
+  padding: 15px;
+  margin-left: 80px;
+  margin-top: 100px;
+  width: 100%;  /* Hoặc giá trị cụ thể như 600px */
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
