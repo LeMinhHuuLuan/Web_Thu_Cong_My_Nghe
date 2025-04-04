@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/footer.css"/>
         <link rel="stylesheet" href="css/banner_slide.css"/>
         <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/content.css">
+        <link rel="stylesheet" href="css/shop.css">
         <link rel="stylesheet" href="fonts_icon/fontawesome-free-6.7.1-web/fontawesome-free-6.7.1-web/css/all.css  ">
 </head>
 

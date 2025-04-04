@@ -31,7 +31,7 @@
   font-weight: 450;
 }
 
-/*Middle content */
+/*Middle content 1 */
 .middle-content-1 .content-container{
   display: flex;
   flex-wrap: nowrap;
@@ -40,19 +40,49 @@
 .middle-content-1 .content-container .custom-content-1{
   box-sizing: border-box;
   padding: 15px;
-  margin-right: 20px ;
+  margin-left: 20px ;
 }
 
-.middle-content-1 .content-container .custom-content-2{
+.middle-content-1 .content-container .custom-content-2 {
+  display: inline-block;
+  text-align: center;
   box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: auto;
   padding: 15px;
-  margin-left: 80px;
-  margin-top: 100px;
   width: 100%;  /* Hoặc giá trị cụ thể như 600px */
   height: auto;
   object-fit: cover;
   display: block;
 }
+
+/*Middle content 2 */
+.middle-content-2 .content-container{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.middle-content-2 .content-container .custom-content-2{
+  box-sizing: border-box;
+  padding: 15px;
+  margin-right: 20px;
+}
+
+.middle-content-2 .content-container .custom-content-1 {
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 15px;
+  width: 100%;  /* Hoặc giá trị cụ thể như 600px */
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+
+
 
 
 

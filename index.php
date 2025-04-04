@@ -147,6 +147,23 @@
         </div>
     </div>
  </div>
+
+ <div class="middle-content-2">
+    <div class="content-container">
+        <div class="custom-content-1">
+            <video src="./video/middle-content-video_2.mp4"
+            playsinline loop muted autoplay 
+            poster="./img/index/middle-content-video_1-poster.webp"></video>
+        </div>
+
+        <div class="custom-content-2">
+            <picture>
+                <!-- <source srcset="./img/index/middle-content-pic_2.webp" type="image/webp"> -->
+                <img src="./img/index/middle-content-pic_2.jpg" alt="Mô tả hình ảnh">
+            </picture>
+        </div>
+    </div>
+ </div>
 <?PHP
      include("footer.php")
 ?>
