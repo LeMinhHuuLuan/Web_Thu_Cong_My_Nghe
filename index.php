@@ -109,26 +109,6 @@
 </div>
 
 <!-- Sản phảm mới -->
-<section class="home-new-arrivals">
-    <h2 class="section-tittle-text-center">Sản phẩm mới</h2>
-    <div id="new-arrivals-slider" class="owl-carousel owl-theme">
-        <div class="owl-wrapper-outer">
-            <div class="owl-wrapper" style="width: 100%; left: 0; display:block; transition: all; tranform: translate3d(0px, 0px, 0px);">
-                <div class="owl-item" style="width: 10%">
-                    <div class="item">
-                        <div class="product-item">
-                            <div class="product-img"></div>
-                            <div class="product-info-text">
-                                <div class="product-title"></div>
-                                <div class="product-price"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Middle content -->
  <div class="middle-content-1">
