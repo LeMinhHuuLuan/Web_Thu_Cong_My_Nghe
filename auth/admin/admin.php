@@ -1,3 +1,6 @@
+<?php
+    require_once("../backend/filterAdmin.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,6 +14,9 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
         />
+        <script>
+            const BASE_URL = '<?php echo "/handicraft/auth/admin/"; ?>';
+        </script>
     </head>
     <body>
         <div class="container-fluid">
@@ -76,6 +82,40 @@
                                         </thead>
                                         <tbody>
                                             <!-- Product data will be loaded here -->
+                                            <?php
+                                                require_once("controller/ProductController.php");
+                                                $productController = new ProductController();
+                                                $products = $productController->getAll();
+                                                
+                                                while($product = mysqli_fetch_assoc($products)) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $product['id']; ?></td>
+                                                    <td><?php echo $product['category_name']; ?></td>
+                                                    <td>
+                                                        <?php echo $product['name']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php 
+                                                            echo number_format($product['price']) . ' VNĐ';
+                                                            if($product['sale_price'] > 0) {
+                                                                echo '<br><span class="text-danger">Sale: ' . number_format($product['sale_price']) . ' VNĐ</span>';
+                                                            }
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo $product['description']; ?></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-primary mb-1" onclick="editProduct(<?php echo $product['id']; ?>)">
+                                                            <i class="bi bi-pencil"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-danger" onclick="deleteProduct(<?php echo $product['id']; ?>)">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -147,19 +187,28 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="addProductForm">
+                        <form id="addProductForm" action="controller/handle_product.php" method="POST" enctype="multipart/form-data">
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="productName" class="form-label">Tên sản phẩm</label>
-                                    <input type="text" class="form-control" id="productName" required>
+                                    <input type="text" class="form-control" id="productName" name="name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="productCategory" class="form-label">Danh mục</label>
-                                    <select class="form-select" id="productCategory" required>
+                                    <select class="form-select" id="productCategory" name="category_id" required>
                                         <option value="">Chọn danh mục</option>
-                                        <option value="1">Thủ công mỹ nghệ</option>
-                                        <option value="2">Đồ gỗ</option>
-                                        <option value="3">Đồ sứ</option>
+                                        <?php
+                                            require_once("../../database/connect.php");
+                                            $sql = "SELECT * FROM Category";
+                                            $result = mysqli_query($conn, $sql);
+                                            while($category = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                            <option value="<?php echo $category['id']; ?>">
+                                                <?php echo $category['name']; ?>
+                                            </option>
+                                        <?php
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -167,28 +216,29 @@
                                 <div class="col-md-6">
                                     <label for="productPrice" class="form-label">Giá</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="productPrice" required>
+                                        <input type="number" class="form-control" id="productPrice" name="price" required>
                                         <span class="input-group-text">VNĐ</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="productSale" class="form-label">Giá khuyến mãi</label>
-                                    <input type="number" class="form-control" id="productSale" required>
+                                    <input type="number" class="form-control" id="productSale" name="sale_price" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="productDescription" class="form-label">Mô tả sản phẩm</label>
-                                <textarea class="form-control" id="productDescription" rows="3"></textarea>
+                                <textarea class="form-control" id="productDescription" name="description" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="productImages" class="form-label">Hình ảnh sản phẩm</label>
-                                <input type="file" class="form-control" id="productImages" multiple accept="image/*">
+                                <input type="file" class="form-control" id="productImages" name="product_image" multiple accept="image/*">
                             </div>
+                            <input type="hidden" name="action" value="add_product">
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                        <button type="submit" form="addProductForm" class="btn btn-primary">Lưu sản phẩm</button>
+                        <button type="submit" form="addProductForm" name="submit" class="btn btn-primary">Lưu sản phẩm</button>
                     </div>
                 </div>
             </div>

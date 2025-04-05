@@ -119,3 +119,30 @@
 #productDescription {
     min-height: 120px; 
 }
+
+.form-control, .form-select {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: rgba(13, 110, 253, 0.4);
+    box-shadow: 0 0 8px rgba(13, 110, 253, 0.1);
+}
+
+.input-group .form-control {
+    border-right: none;
+}
+
+.input-group-text {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: none;
+}
+
+textarea.form-control {
+    min-height: 120px;
+}
+
+

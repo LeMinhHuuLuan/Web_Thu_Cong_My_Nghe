@@ -40,6 +40,13 @@ CREATE TABLE `Category` (
   `thumbnail` varchar(500) NOT NULL  -- Ảnh đại diện của loại sản phẩm danh mục
 );
 
+INSERT INTO `Category`(`id`, `name`, `thumbnail`) VALUES
+(1, 'Mugs', '../img/menu_Mugs.jpg'),
+(2, 'Pots', '../img/menu_Pots.jpg'),
+(3, 'Plates', '../img/menu_Plates.jpg'),
+(4, 'Decor', '../img/menu_Decor.jpg'),
+(5, 'Bowls', '../img/menu_Bowls.jpg');
+
 
 -- Sản phẩm
 CREATE TABLE `Product` (

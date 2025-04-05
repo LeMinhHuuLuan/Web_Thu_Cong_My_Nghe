@@ -22,13 +22,69 @@ document.querySelectorAll(".nav-link[data-section]").forEach((link) => {  // Th�
      }
  }
 
- // Handle form submission
+// Xử lý submit form thêm sản phẩm
  document.getElementById('addProductForm').addEventListener('submit', function(e) {
-     e.preventDefault();
-     // Close the modal
-     const modal = bootstrap.Modal.getInstance(document.getElementById('addProductModal'));
-     modal.hide();
-     
-     // Reset form
-     this.reset();
- });
+    e.preventDefault();
+
+    if (typeof BASE_URL === 'undefined') {
+        alert('BASE_URL không được định nghĩa. Vui lòng kiểm tra cấu hình.');
+        return;
+    }
+    
+    let formData = new FormData(this);
+    
+    // Sử dụng BASE_URL từ biến global
+    fetch(BASE_URL + 'controller/handle_product.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Lỗi mạng: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            // Đóng modal và reset form
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addProductModal'));
+            modal.hide();
+            this.reset();
+            
+            alert(data.message);
+            window.location.reload();
+        } else {
+            alert(data.message || 'Có lỗi xảy ra khi thêm sản phẩm.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Có lỗi xảy ra khi kết nối đến server. Vui lòng thử lại.');
+    });
+});
+
+// Sửa lại hàm deleteProduct
+function deleteProduct(id) {
+    if(confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
+        fetch(BASE_URL + 'controller/handle_product.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'action=delete_product&id=' + id
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                alert(data.message);
+                location.reload();
+            } else {
+                alert('Lỗi: ' + data.message);
+            }
+        });
+    }
+}
+// Hàm sửa sản phẩm (có thể thêm sau)
+function editProduct(id) {
+    // Code xử lý sửa sản phẩm
+}
