@@ -47,6 +47,7 @@ CREATE TABLE `Product` (
   `category_id` int NOT NULL, -- ID danh mục sản phẩm
   `name` varchar(255) NOT NULL, -- Tên sản phẩm
   `price` int NOT NULL, -- Giá sản phẩm
+  `sale_price` int NOT NULL, -- Giá khuyến mãi
   `product_image` varchar(500) NOT NULL, -- Ảnh sản phẩm
   `description` longtext NULL,  -- Mô tả sản phẩm
   `created_at` datetime NOT NULL, -- Ngày tạo sản phẩm

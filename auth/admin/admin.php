@@ -39,6 +39,16 @@
                         <a class="nav-link" href="#" data-section="users">
                             <i class="bi bi-people"></i> Quản lý người dùng
                         </a>
+                        <hr class="border-light my-3">
+        
+                        <!-- Thêm link trở về trang chủ -->
+                        <a class="nav-link external-link" href="../../index.php">
+                            <i class="bi bi-house-door"></i> Trở về trang chủ
+                        </a>
+                        <!-- Thêm link đăng xuất -->
+                        <a class="nav-link external-link text-danger" href="../backend/logoutCookie.php">
+                            <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                        </a>
                     </nav>
                 </div>
 
@@ -130,7 +140,7 @@
 
         <!-- Add Product Modal -->
         <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="addProductModalLabel">Thêm sản phẩm mới</h5>
@@ -162,8 +172,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="productQuantity" class="form-label">Số lượng</label>
-                                    <input type="number" class="form-control" id="productQuantity" required>
+                                    <label for="productSale" class="form-label">Giá khuyến mãi</label>
+                                    <input type="number" class="form-control" id="productSale" required>
                                 </div>
                             </div>
                             <div class="mb-3">

@@ -42,3 +42,80 @@
  .p-3 h4{
     text-align: center;
  }
+
+ /* Style cho đường kẻ phân cách */
+    .sidebar hr {
+        margin: 1rem 0.5rem;
+        opacity: 0.2;
+    }
+    
+    /* Style cho nút đăng xuất */
+    .sidebar .nav-link.text-danger:hover {
+        background-color: rgba(220, 53, 69, 0.1);
+        color: #dc3545 !important;
+    }
+    
+    /* Style cho nút trở về trang chủ */
+    .sidebar .link-primary[href*="../../index.php"]:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+ /* Định dạng cho bảng sản phẩm */
+ #products .table th:nth-child(1) { width: 5%; }  /* ID */
+ #products .table th:nth-child(2) { width: 15%; } /* Danh mục */
+ #products .table th:nth-child(3) { width: 25%; } /* Tên sản phẩm */
+ #products .table th:nth-child(4) { width: 15%; } /* Giá */
+ #products .table th:nth-child(5) { width: 30%; } /* Mô tả */
+ #products .table th:nth-child(6) { width: 10%; } /* Thao tác */
+
+ /* Định dạng cho bảng đơn hàng */
+ #orders .table th:nth-child(1) { width: 15%; }   /* Mã đơn hàng */
+ #orders .table th:nth-child(2) { width: 30%; }   /* Khách hàng */
+ #orders .table th:nth-child(3) { width: 20%; }   /* Tổng tiền */
+ #orders .table th:nth-child(4) { width: 20%; }   /* Trạng thái */
+ #orders .table th:nth-child(5) { width: 15%; }   /* Thao tác */
+
+ /* Định dạng cho bảng người dùng */
+ #users .table th:nth-child(1) { width: 5%; }     /* ID */
+ #users .table th:nth-child(2) { width: 20%; }    /* Tên người dùng */
+ #users .table th:nth-child(3) { width: 20%; }    /* Email */
+ #users .table th:nth-child(4) { width: 15%; }    /* Số điện thoại */
+ #users .table th:nth-child(5) { width: 20%; }    /* Địa chỉ */
+ #users .table th:nth-child(6) { width: 10%; }    /* Vai trò */
+ #users .table th:nth-child(7) { width: 10%; }    /* Thao tác */
+
+ /* Đảm bảo bảng responsive */
+ .table-responsive {
+     overflow-x: auto;
+ }
+ 
+ /* Tùy chọn: Cố định header của bảng */
+ .table thead th {
+     position: sticky;
+     top: 0;
+     background-color: #fff;
+     z-index: 1;
+ }
+
+ /* Fomr thêm sản phẩm */
+ .modal-xl {
+    max-width: 90%; 
+}
+
+.modal-body {
+    padding: 2rem; 
+}
+
+
+#addProductForm .row {
+    margin-bottom: 1.5rem;
+}
+
+#addProductForm .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+#productDescription {
+    min-height: 120px; 
+}
